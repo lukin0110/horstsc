@@ -5,10 +5,24 @@ subtitle: Evenementen
 subdesc: Evenementen die Horst SC organiseert
 ---
 
-<DIV class="Object338"><SPAN class="textstyle3">7-6-2013: Road to Brasil! BBQ 
-DELUXE:<BR><BR>Naar aanleiding van het vorige 'Red devils dinner' gaan we op ons 
-elan verder! <BR>De wedstrijd België - Servië zal uitgezonden worden op groot 
-scherm. <BR><BR>Glaasje cava en aperitiefhapje.<BR>BBQ DELUXE.<BR>Ambachtelijk 
-ijs.<BR><BR>Belgie-Servie op groot scherm!<BR><BR>Kostprijs: 50€ ALL IN 
-(bier,fris,cava en wijn)<BR><BR>Inschrijven: Tips Bjorn,Beneens Kristof,Kim 
-geuens<BR>AMBIANCE VERZEKERD !!!!!! <BR></SPAN></DIV>
+
+<div class="row">
+    <div class="span3">
+        <h4>Alle evenementen</h4>
+        <ul class="nav nav-list bs-docs-sidenav affix-top">
+            {% for post in site.categories.event %}
+                <!--<li><a href="{{ post.url }}"><i class="icon-chevron-right"></i> {{ post.title }}</a></li>-->
+                <li><i class="icon-chevron-right"></i> {{ post.title }}</li>
+            {% endfor %}
+            <li><i class="icon-chevron-right"></i> ...</li>
+        </ul>
+    </div>
+
+    <div class="span9">
+        {% for post in site.categories.event %}
+            <h4>{{ post.title }}</h4>
+            <p><strong>{{ post.datestr }}</strong></p>
+            {{ post.content }}
+        {% endfor %}
+    </div>
+</div>

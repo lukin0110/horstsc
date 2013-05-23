@@ -10,17 +10,21 @@
 -------------------------------------------------- */
 body {
     position: relative;
-    padding-top: 80px;
+    padding-top: 71px;
     /*  background-color: #fff;
    background-image: url(../img/grid-18px-masked.png);*/
     background-repeat: repeat-x;
     background-position: 0 40px;
+    background-color: black;
 }
 
 /* Jumbotrons
 -------------------------------------------------- */
 .jumbotron {
+    padding-top: 35px;
+    padding-bottom: 30px;
     position: relative;
+    background-color: black;
 }
 .jumbotron h1 {
     margin-bottom: 9px;
@@ -318,4 +322,54 @@ body .one .bsa_it_p {
     .subnav-fixed .nav {
         width: 1168px; /* 2px less to account for left/right borders being removed when in fixed mode */
     }
+}
+
+
+.facebook img {
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+    /* IE 5-7 */
+    filter: alpha(opacity=70);
+    /* Netscape */
+    -moz-opacity: 0.7;
+    /* Safari 1.x */
+    -khtml-opacity: 0.7;
+    /* Good browsers */
+    opacity: 0.7;
+
+}
+
+.facebook:hover img {
+    /* IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    /* IE 5-7 */
+    filter: alpha(opacity=100);
+    /* Netscape */
+    -moz-opacity: 1;
+    /* Safari 1.x */
+    -khtml-opacity: 1;
+    /* Good browsers */
+    opacity: 1;
+}
+
+
+.img-rounded{
+    -moz-box-shadow: 0px 0px 5px #aaa;
+    -webkit-box-shadow: 0px 0px 5px #aaa;
+    box-shadow: 0px 0px 5px #aaa;
+}
+
+h2, h3, h4{
+    color: #bbb;
+}
+.navbar-inner{
+    background-color: white;
+}
+
+.navbar .nav>li>a {
+    padding: 23px 20px 13px;
+    font-family: 'Oswald',sans-serif;
+    font-size: 22px;
+    line-height: 30px;
+    text-shadow: -1px 1px 0 #612C0C;
 }

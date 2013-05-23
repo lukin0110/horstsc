@@ -5,18 +5,26 @@ subtitle: Horst SC
 subdesc: Welkom op onze website
 ---
 
+<div class="row">
+    <div class="span3">
+        <h3>Laatste wedstrijden</h3>
+        <ul>
+            <li>A-ploeg: HSC - Kiebergen 3-1</li>
+            <li>B-ploeg: vrij</li>
+        </ul>
 
-<DIV class="Object295"><SPAN class="textstyle4">Laatste wedstrijden:<BR><BR>
-A-ploeg:HSC - Kiebergen 3-1<BR>B-ploeg: vrij<BR><BR><BR>Volgende wedstrijd: 
-20-05-2013<BR><BR>A-ploeg: 17:00 Heessakker - HSC<BR>B-ploeg: vrij<BR>
-</SPAN></DIV>
-
-<DIV class="Object297"><SPAN class="textstyle4">7-6-2013: Road to Brasil! BBQ 
-DELUXE:<BR><BR>Naar aanleiding van het vorige 'Red devils dinner' gaan we op ons 
-elan verder! <BR>De wedstrijd België - Servië zal uitgezonden worden op groot 
-scherm. <BR><BR>Glaasje cava en aperitiefhapje.<BR>BBQ DELUXE.<BR>Ambachtelijk 
-ijs.<BR><BR>Belgie-Servie op groot scherm!<BR><BR>Kostprijs: 50€ ALL IN 
-(bier,fris,cava en wijn)<BR><BR>Inschrijven: Tips Bjorn,Beneens Kristof,Kim 
-geuens<BR>AMBIANCE VERZEKERD !!!!!! <BR></SPAN></DIV>
-
+        <h3>Volgende wedstrijden</h3>
+        <ul>
+            <li>A-ploeg: 17:00 Heessakker - HSC</li>
+            <li>B-ploeg: vrij</li>
+        </ul>
+    </div>
+    <div class="span9">
+        {% for post in site.categories.event %}
+            <h3>{{ post.title }}</h3>
+            <p><strong>{{ post.datestr }}</strong></p>
+            {{ post.content }}
+        {% endfor %}
+    </div>
+</div>
 
