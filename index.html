@@ -6,20 +6,20 @@ subdesc: Welkom op onze website
 ---
 
 <div class="row">
-    <div class="span3">
+    <div class="span4">
         <h3>Laatste wedstrijden</h3>
-        <ul>
-            <li>A-ploeg: HSC - Kiebergen 3-1</li>
-            <li>B-ploeg: vrij</li>
-        </ul>
+        <table class="table">
+            <tbody id="prev">
+            </tbody>
+        </table>
 
         <h3>Volgende wedstrijden</h3>
-        <ul>
-            <li>A-ploeg: 17:00 Heessakker - HSC</li>
-            <li>B-ploeg: vrij</li>
-        </ul>
+        <table class="table">
+            <tbody id="next">
+            </tbody>
+        </table>
     </div>
-    <div class="span9">
+    <div class="span8">
         {% for post in site.categories.event %}
             <h3>{{ post.title }}</h3>
             <p><strong>{{ post.datestr }}</strong></p>

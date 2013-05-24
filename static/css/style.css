@@ -373,3 +373,10 @@ h2, h3, h4{
     line-height: 30px;
     text-shadow: -1px 1px 0 #612C0C;
 }
+
+.table{background-color:black;}
+.table td{white-space:nowrap;}
+.table strong{font-size: 1.2em;}
+.table .right{text-align: right;}
+.table .left{text-align: left;}
+
