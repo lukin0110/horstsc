@@ -3,8 +3,15 @@
 <head>
     <meta charset="utf-8">
     <title>{{ page.title }} - Horst SC</title>
+    <!--
+    m    m                        m            mmmm    mmm
+    #    #  mmm    m mm   mmm   mm#mm         #"   " m"   "
+    #mmmm# #" "#   #"  " #   "    #           "#mmm  #
+    #    # #   #   #      """m    #               "# #
+    #    # "#m#"   #     "mmm"    "mm         "mmm#"  "mmm"
+    -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="{{ page.description }}">
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -20,6 +27,13 @@
 
         ga('create', 'UA-24094817-4', 'horstsc.be');
         ga('send', 'pageview');
+    </script>
+    <script>
+        window.addEventListener("load",function() {
+            setTimeout(function(){
+                window.scrollTo(0, 0);
+            }, 0);
+        });
     </script>
 </head>
 <body data-spy="scroll" data-target=".subnav" data-offset="71">
@@ -45,7 +59,7 @@
                     -->
                 </ul>
                 <ul class="nav pull-right" id="main-menu-right">
-                    <li><a class="facebook" href="https://www.facebook.com/pages/HORST-SC/72191750852" title="Follow us on Facebook">
+                    <li><a class="facebook" href="https://www.facebook.com/VoetbalHorstSC" title="Follow us on Facebook">
                         <img src="/static/img/facebook.png" alt="Follow us on Facebook" width="40" height="40"></a>
                     </li>
                 </ul>
@@ -74,9 +88,80 @@
     </div>
 </footer>
 
+<script>
+    function parseDate(datestr){
+        //"20/04/13 15:45"
+        var arr = datestr.split(" ");
+        var arrdate = arr[0].split("/");
+        var arrtime = arr[1].split(":");
+        return new Date("20" + arrdate[2], parseInt(arrdate[1])-1, arrdate[0], arrtime[0], arrtime[1]);
+    }
+
+    function register(team, calendar){
+        var current = new Date();
+        var found = false;
+        window[team] = calendar;
+
+        for(var i=0;i<calendar.length;i++){
+            var game = calendar[i];
+            var date = parseDate(game[0]);
+            game.unshift(date);
+
+            if(!found && date.getTime()>current.getTime()){
+                window[team + "-next"] = calendar[i];
+                if(i>0){
+                    window[team + "-prev"] = calendar[i-1];
+                }
+                found = true;
+            }
+        }
+    }
+
+    function make(game){
+        var a = [];
+        a.push("<tr>");
+
+        if(game && game.length>3){
+            var date = game[0];
+            a.push('<td><span class="label label-warning">');
+            a.push(date.getDate() + '-' + (date.getMonth()+1));
+            if(game.length<10){
+                a.push(" om ");
+                a.push(date.getHours()<10?"0"+date.getHours():date.getHours());
+                a.push(":");
+                a.push(date.getMinutes()<10?"0"+date.getMinutes():date.getMinutes());
+            }
+            a.push('</span></td><td class="right">');
+            a.push(game[2]);
+            a.push('</td><td>');
+            if(game.length>4){
+                a.push(" <strong>");
+                a.push(game[4]);
+                a.push("-");
+                a.push(game[5]);
+                a.push("</strong> ");
+            } else {
+                a.push(" - ");
+            }
+            a.push('</td><td class="left">');
+            a.push(game[3]);
+
+        }
+        a.push("</td></tr>");
+        return a.join("");
+    }
+
+    // Include the calendar
+    {% include 2013-zomercompetitie.html %}
+</script>
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="/static/bootstrap/2.3.2/js/bootstrap.min.js"></script>
-<script src="/static/js/app.js"></script>
+<script>
+    $('#prev').html("").append(make(window["A-prev"])).append(make(window["B-prev"]));
+    $('#next').html("").append(make(window["A-next"])).append(make(window["B-next"]));
+</script>
+
 
 </body>
 </html>
