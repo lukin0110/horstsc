@@ -126,14 +126,14 @@
             a.push('<td><span class="label label-warning">');
             a.push(date.getDate() + '-' + (date.getMonth()+1));
             if(game.length<10){
-                a.push(" om ");
+                a.push(" ");
                 a.push(date.getHours()<10?"0"+date.getHours():date.getHours());
                 a.push(":");
                 a.push(date.getMinutes()<10?"0"+date.getMinutes():date.getMinutes());
             }
             a.push('</span></td><td class="right">');
             a.push(game[2]);
-            a.push('</td><td>');
+            a.push('</td><td class="score">');
             if(game.length>4){
                 a.push(" <strong>");
                 a.push(game[4]);
@@ -161,7 +161,5 @@
     $('#prev').html("").append(make(window["A-prev"])).append(make(window["B-prev"]));
     $('#next').html("").append(make(window["A-next"])).append(make(window["B-next"]));
 </script>
-
-
 </body>
 </html>
