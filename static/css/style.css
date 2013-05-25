@@ -376,7 +376,7 @@ h2, h3, h4{
 
 .table{background-color:black;}
 .table strong{font-size: 1.2em;}
-.table .score{white-space:nowrap;}
+.table .score{white-space:nowrap;text-align: center;}
 .table .right{text-align: right;}
 .table .left{text-align: left;}
 

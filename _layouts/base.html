@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <title>{{ page.title }} - Horst SC</title>
+    <!--
+    m    m                        m            mmmm    mmm
+    #    #  mmm    m mm   mmm   mm#mm         #"   " m"   "
+    #mmmm# #" "#   #"  " #   "    #           "#mmm  #
+    #    # #   #   #      """m    #               "# #
+    #    # "#m#"   #     "mmm"    "mm         "mmm#"  "mmm"
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{ page.description }}">
+    <link rel="icon" type="image/x-icon" href="/static/img/favicon.ico"/>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link href="/static/bootstrap/2.3.2/css/superhero.min.css" rel="stylesheet">
+    <link href="/static/bootstrap/2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-24094817-4', 'horstsc.be');
+        ga('send', 'pageview');
+    </script>
+    <script>
+        window.addEventListener("load",function() {
+            setTimeout(function(){
+                window.scrollTo(0, 0);
+            }, 0);
+        });
+    </script>
+</head>
+<body data-spy="scroll" data-target=".subnav" data-offset="71">
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/" title="Go home">Horst SC</a>
+            <div class="nav-collapse collapse" id="main-menu" style="height: 0px;">
+                <ul class="nav" id="main-menu-left">
+                    <li><a href="/competitie.html" title="Competitie">Competitie</a></li>
+                    <li><a href="/kantine.html" title="Onze nieuwe kantine">Nieuwe Kantine</a></li>
+                    <li><a href="/evenementen.html" title="Evenementen">Evenementen</a></li>
+                    <li><a href="/kermis.html" title="Evenementen">Kermis 2013</a></li>
+                    <li><a href="/contact.html" title="Contact">Contact</a></li>
+                </ul>
+                <ul class="nav pull-right" id="main-menu-right">
+                    <li><a class="facebook" href="https://www.facebook.com/VoetbalHorstSC" title="Follow us on Facebook">
+                        <img src="/static/img/facebook.png" alt="Follow us on Facebook" width="40" height="40"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ content }}
+
+<footer id="footer" class="footer" style="margin-top: 50px">
+    <div class="container">
+        <!--<p class="pull-right"><a href="#">Naar boven</a></p>-->
+        <!--<div class="pull-left">-->
+        <!--<p>Copyright {{ site.time | date: "%Y" }} <a href="/">Horst SC</a></p>-->
+        <!--</div>-->
+    </div>
+</footer>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="/static/bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="/static/js/horst.js"></script>
+<script>
+    // Include the calendar
+    {% include 2013-zomercompetitie.html %}
+    // Attach game results
+    $('#prev').html("").append(H.make(H.prev["A"])).append(H.make(H.prev["B"]));
+    $('#next').html("").append(H.make(H.next["A"])).append(H.make(H.next["B"]));
+
+    $('#calendar-a').html(H.makeCalendar("A"));
+    $('#calendar-b').html(H.makeCalendar("B"));
+</script>
+</body>
+</html>
