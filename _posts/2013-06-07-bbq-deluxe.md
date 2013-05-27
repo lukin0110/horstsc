@@ -9,7 +9,6 @@ facebook: https://www.facebook.com/events/378033992306722/
 
 Naar aanleiding van het vorige 'Red devils dinner' gaan we op ons elan verder!
 De wedstrijd <strong>België - Servië</strong> zal uitgezonden worden op groot scherm.
-[Blijf up to date via Facebook](https://www.facebook.com/events/378033992306722/).
 
  - Glaasje cava en aperitiefhapje
  - Barbeque Deluxe
